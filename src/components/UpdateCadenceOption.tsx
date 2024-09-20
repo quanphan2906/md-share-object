@@ -13,18 +13,14 @@ export default function UpdateCadenceOption() {
 		},
 		{
 			value: "daily",
-			label: "Daily",
-			description: "Update consumers on a daily basis.",
+			label: "Daily at 12:00 AM PST",
+			description: "Update consumers every day at 12:00 AM PST.",
 		},
 		{
 			value: "weekly",
-			label: "Weekly",
-			description: "Update consumers on a weekly basis.",
-		},
-		{
-			value: "monthly",
-			label: "Monthly",
-			description: "Update consumers on a monthly basis.",
+			label: "Weekly on Saturday 12:00 AM PST",
+			description:
+				"Update consumers every week on Saturday at 12:00 AM PST.",
 		},
 	];
 
