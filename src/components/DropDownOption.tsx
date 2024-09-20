@@ -1,5 +1,5 @@
 import { Label } from "@/components/ui/label";
-import { Check, X } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { PopoverClose } from "@radix-ui/react-popover";
@@ -38,7 +38,7 @@ export default function DropdownOption({
 								(option) => option.value === currentOption
 							)?.label
 						}
-						<X className="h-4 w-4 opacity-50" />
+						<ChevronDown className="h-4 w-4 opacity-50" />
 					</Button>
 				</PopoverTrigger>
 				<PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
