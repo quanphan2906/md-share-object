@@ -6,6 +6,7 @@ import { PopoverClose } from "@radix-ui/react-popover";
 import { Dispatch, SetStateAction } from "react";
 
 interface DropdownOptionProps {
+	dropDownLabel: string;
 	options: {
 		value: string;
 		label: string;
@@ -16,13 +17,14 @@ interface DropdownOptionProps {
 }
 
 export default function DropdownOption({
+	dropDownLabel,
 	options,
 	currentOption,
 	setCurrentOption,
 }: DropdownOptionProps) {
 	return (
 		<div>
-			<Label htmlFor="access">Access</Label>
+			<Label>{dropDownLabel}</Label>
 			<Popover>
 				<PopoverTrigger asChild>
 					<Button
@@ -39,27 +41,27 @@ export default function DropdownOption({
 						<X className="h-4 w-4 opacity-50" />
 					</Button>
 				</PopoverTrigger>
-				<PopoverContent className="w-[calc(100%-2rem)] p-0">
+				<PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
 					<PopoverClose asChild>
 						<div className="bg-white rounded-md shadow-lg border">
 							{options.map((option) => (
 								<div
 									key={option.value}
-									className="flex items-center justify-between p-4 hover:bg-gray-100 cursor-pointer"
+									className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
 									onClick={() => {
 										setCurrentOption(option.value);
 									}}
 								>
-									<div className="h-100 w-[36px]">
+									<div className="w-[32px]">
 										{currentOption === option.value && (
 											<Check className="h-4 w-4" />
 										)}
 									</div>
-									<div className="flex-grow">
-										<div className="font-medium">
+									<div>
+										<div className="text-sm font-medium">
 											{option.label}
 										</div>
-										<div className="text-sm text-gray-500">
+										<div className="text-xs text-gray-500">
 											{option.description}
 										</div>
 									</div>

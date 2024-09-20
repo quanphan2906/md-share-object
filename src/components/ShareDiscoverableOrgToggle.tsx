@@ -8,11 +8,12 @@ export default function ShareDiscoverableOrgToggle() {
 	return (
 		<div className="flex items-center justify-between">
 			<div>
-				<Label htmlFor="discoverable" className="text-base">
+				<Label htmlFor="discoverable" className="text-sm">
 					Make this share discoverable in your organization
 				</Label>
 				<p className="text-xs text-gray-500">
-					This share will appear in your teammates' database list.
+					This share will appear in your teammates&apos; database
+					list.
 				</p>
 			</div>
 			<Switch

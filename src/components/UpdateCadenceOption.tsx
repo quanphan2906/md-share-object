@@ -9,24 +9,28 @@ export default function UpdateCadenceOption() {
 			value: "immediately",
 			label: "Immediately",
 			description:
-				"Broadcast changes to everyone who has access immediately when there's a change to the share.",
+				"Update consumers immediately when there's change to share.",
 		},
 		{
 			value: "daily",
 			label: "Daily",
+			description: "Update consumers on a daily basis.",
 		},
 		{
 			value: "weekly",
 			label: "Weekly",
+			description: "Update consumers on a weekly basis.",
 		},
 		{
 			value: "monthly",
 			label: "Monthly",
+			description: "Update consumers on a monthly basis.",
 		},
 	];
 
 	return (
 		<DropdownOption
+			dropDownLabel="Update cadence"
 			options={updateOptions}
 			currentOption={currentUpdateOption}
 			setCurrentOption={setCurrentUpdateOption}

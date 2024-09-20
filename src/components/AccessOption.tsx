@@ -21,6 +21,7 @@ export default function AccessOption() {
 
 	return (
 		<DropdownOption
+			dropDownLabel="Access"
 			options={accessOptions}
 			currentOption={accessOption}
 			setCurrentOption={setAccessOption}
