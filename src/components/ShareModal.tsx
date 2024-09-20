@@ -4,11 +4,29 @@ import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ShareName from "./ShareName";
 import DatabaseOptions from "./DatabaseOptions";
-import AccessOption from "./AccessOption";
+import DropdownOption from "./DropDownOption";
 import ShareDiscoverableOrgToggle from "./ShareDiscoverableOrgToggle";
 import UpdateCadenceOption from "./UpdateCadenceOption";
+import { useState } from "react";
 
 export default function ShareModal() {
+	const [accessOption, setAccessOption] = useState("organization");
+
+	const accessOptions = [
+		{
+			value: "organization",
+			label: "Anyone in my organization",
+			description:
+				"Only members of your organization will be able to attach & query this database.",
+		},
+		{
+			value: "link",
+			label: "Anyone with the share link",
+			description:
+				"Any MotherDuck user with the share link will be able to attach & query this database.",
+		},
+	];
+
 	return (
 		<div className="inset-0 flex items-center justify-center p-4">
 			<div className="bg-white rounded-lg shadow-lg max-w-md w-full">
@@ -29,9 +47,16 @@ export default function ShareModal() {
 					<div className="space-y-4">
 						<ShareName />
 						<DatabaseOptions />
-						<AccessOption />
 						<UpdateCadenceOption />
-						<ShareDiscoverableOrgToggle />
+						<DropdownOption
+							dropDownLabel="Access"
+							options={accessOptions}
+							currentOption={accessOption}
+							setCurrentOption={setAccessOption}
+						/>
+						{accessOption === "organization" && (
+							<ShareDiscoverableOrgToggle />
+						)}
 					</div>
 				</div>
 				<div className="flex justify-end gap-4 p-6">
